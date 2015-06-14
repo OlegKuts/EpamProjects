@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://bankinfo.com/banks"
+    xmlns:tns = "http://bankinfo.com/banks" elementFormDefault="qualified">
+   <element name="banks">
+    <complexType>
+        <sequence>
+            <element name="bank" type="tns:Bank" minOccurs="1" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+   </element>  
+    <complexType name="Bank">
+        <sequence>
+            <element name="name" type="string"/>
+            <element name="country" type="string"/>
+            <element name="deposit" type="tns:Deposit"/>
+        </sequence>
+    </complexType>
+    <complexType name="Deposit">
+        <sequence>
+            <element name="depositor" type="string"/>
+            <element name="amount">
+                <simpleType>
+                    <restriction base="float">
+                        <minInclusive value="100"/>
+                        <pattern value="(\d)+(\.(\d){1,2})?"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="profitability">
+                <simpleType>
+                    <restriction base="float">
+                        <minInclusive value="1"/>
+                        <maxInclusive value="100"/>
+                        <pattern value="(\d)+(\.)(\d){1,2}"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="constraints">
+                <simpleType>
+                    <restriction base="duration">
+                        <minInclusive value="P1M"/>
+                        <pattern value="(P){1}(\dY)?(\d\d?M)?"/>
+                    </restriction>
+                </simpleType>
+            </element>         
+        </sequence>
+        <attribute name="type" use="required">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="demand deposit"/>
+                    <enumeration value="savings deposit"/>
+                    <enumeration value="term deposit"/>
+                    <enumeration value="money market deposit"/>
+                    <enumeration value="call deposit"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+        <attribute name="accountId" use="required">
+            <simpleType>
+                <restriction base="ID"/>
+            </simpleType>
+        </attribute>
+    </complexType>
+</schema>

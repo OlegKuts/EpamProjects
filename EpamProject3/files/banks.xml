@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<banks xmlns="http://bankinfo.com/banks"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://bankinfo.com/banks banks.xsd">
+    <bank>
+        <name>HKB Bank</name>
+        <country>Bavaria</country>
+        <deposit type="demand deposit" accountId="d172061">
+            <depositor>Alissa Lange</depositor>
+            <amount>5000</amount>
+            <profitability>7.0</profitability>
+            <constraints>P10M</constraints>
+        </deposit>
+    </bank>
+    <bank>
+        <name>Stadtsparkasse Hameln</name>
+        <country>Germany</country>
+        <deposit type="savings deposit" accountId="d69449">
+            <depositor>Luca Freud</depositor>
+            <amount>12000</amount>
+            <profitability>5.0</profitability>
+            <constraints>P2Y</constraints>
+        </deposit>
+    </bank>
+    <bank>
+        <name>Sparkasse Soest</name>
+        <country>Austria</country>
+        <deposit type="term deposit" accountId="d14413">
+            <depositor>Vivian Sieghart</depositor>
+            <amount>2000</amount>
+            <profitability>4.5</profitability>
+            <constraints>P1Y6M</constraints>
+        </deposit>
+    </bank>
+</banks>
